@@ -4,9 +4,9 @@
 %
 \documentclass[11pt]{article}
 
-\usepackage[acronym,toc]{glossaries}
-\include{acros}
-\makeglossaries
+%\usepackage[acronym,toc]{glossaries}
+%\include{acros}
+%\makeglossaries
 \usepackage{fancyhdr}
 \usepackage{pagecounting}
 \usepackage[dvips]{color}
@@ -14,9 +14,8 @@
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{placeins}
-%\usepackage{chronology}
-\usepackage{tabularx}
 \usepackage[hidelinks]{hyperref}
+\usepackage{tabularx}
 
 % Trying to bold PI names in the bib
 \usepackage{xstring}
@@ -36,12 +35,12 @@
           \newcommand{\authorsite}{arfc.npre.illinois.edu}
 
           \begin{document}
-          \title{Open Source, Collaborative Curriculum}
-          \author{\textbf{PI: Kathryn Huff}\\%
-%          \textbf{Co-PI: Neal Davis}\\%
+          \title{Collaborative Open Source Curriculum Development}
+          \author{\textbf{PI: Kathryn Huff}\\
+                  kdhuff@illinois.edu\\
                   University of Illinois Urbana-Champaign
                   \and
-\textbf{Co-PI: Neal Davis}\\University of Illinois Urbana-Champaign
+\textbf{Co-PI: Neal Davis}\\davis68@illinois.edu\\University of Illinois Urbana-Champaign
 \and
 Paul Wilson\\University of Wisconsin - Madison 
 \and
@@ -61,8 +60,8 @@ Paul Wilson\\University of Wisconsin - Madison
           % Leave Left and Right Header empty.
           %\lhead{}
           %\rhead{}
-          \lhead{\textcolor{gray}{PI: \authorname (NPRE)\\\authoremail}}
-          \rhead{\textcolor{gray}{Collaborative Open Source Curriculum Development\\}}
+          \lhead{\textcolor{gray}{SIIP Full Proposal}}
+          \rhead{\textcolor{gray}{Collaborative Open Source Curriculum Development}}
           %\rhead{\textcolor{gray}{\thepage/\totalpages{}}}
           \renewcommand{\headrulewidth}{0pt}
           \renewcommand{\footrulewidth}{0pt}
@@ -121,6 +120,7 @@ Paul Wilson\\University of Wisconsin - Madison
           among faculty teaching courses with an inherently larger scale (e.g. 
           CS101).
 
+          \subsection{Collaboration Roles}
           Faculty in Nuclear Engineering from five institutions\footnote{
           Paul Wilson at (UW Madison), 
           Steven Skutnik (UT Knoxville), 
@@ -135,18 +135,30 @@ Paul Wilson\\University of Wisconsin - Madison
           curricula online as well, but these are typically single author 
           repositories (e.g. \cite{huff_npre412_2017}).
 
-          The participants will collaborate on a master set of learning 
+          The PI and participants will collaborate on a master set of learning 
           modules for an upper-division course in nuclear engineering : 
           The Nuclear Fuel Cycle. In the near term, we will develop 
           fine-grained lessons and assessments which may be mixed and matched 
           to meet the learning objectives. The curriculum will be hosted on 
           GitHub, tested by all of us, and improved continually.
+          
+          The PI and external collaborators will contribute and develop lesson 
+          material including lesson notes, in-class exercises, worked example 
+          problems, assessments (homework, quiz, and test questions), project 
+          assignment descriptions, media (images, movies), supporting material 
+          references, etc. These collaborators will primarily rely on the 
+          material they have developed for their own courses, but will need to 
+          convert that material into the format of the collective resource 
+          (format decided at the first workshop). Additionally, these 
+          collaborators will be core maintainers of the repository and will 
+          accordingly be responsible for conducting reviews of new material 
+          pull requests.
 
           Prof. Neal Davis, Co-PI of this proposal, has contemplated a 
           Collaborative Computational Curriculum for some time 
           \cite{davis_university_2016}. Since he 
           teaches large-scale 
-          computational curriculum at UIUC 
+          computational curriculum at Illinois 
           he is an ideal person to potentially scale-up this work in the 
           future. Additionally, he has the nuclear engineering background to 
           understand the context of this prototyping effort. Prof. Davis' role 
@@ -212,6 +224,27 @@ Paul Wilson\\University of Wisconsin - Madison
           and collaboration? 
 \fi
 
+          \section{Timeline and Deliverables}
+          \subsection{Timeline}
+          The year will be bookended by two workshops, a kickoff workshop 
+          and a retrospective workshop. In the intervening time, consistent 
+          communication through GitHub's collaboration framework, a Slack 
+          channel, an email listhost, a shared Google Drive folder, and monthly 
+          Google Hangouts will drive this work.
+
+          If Fall 2017, any material developed through this process will be 
+          incorporated into NPRE 412, the University of Illinois nuclear fuel 
+          cycle course taught by the PI, Kathryn Huff.  
+
+          \begin{itemize}
+                  \item \textbf{Jul 2017} Kick-Off Workshop
+                  \item \textbf{Aug 2017 - Dec 2017} NPRE 412 beta testing
+                  \item \textbf{Jul 2018} Retrospective Workshop
+          \end{itemize}
+
+          Details of the workshops and interim efforts are given in the next 
+          subsections.
+
           \subsection{Kick-Off Workshop}
           A two-day kick-off workshop hosted at the University of Illinois at 
           Urbana-Champaign will allow the 
@@ -221,23 +254,35 @@ Paul Wilson\\University of Wisconsin - Madison
           products. These products will be published in an online repository 
           and associated website, both hosted by GitHub. 
 
-          Invited participants in the first workshop will include UIUC PI Huff 
-          and UIUC Co-PI Davis, excternal collaborating professors Wilson, 
-          Skutnik, Roberts, Scopatz, and Borrelli, and up to 2 UIUC professors 
+          Invited participants in the first workshop will include Illinois PI Huff 
+          and Illinois Co-PI Davis, excternal collaborating professors Wilson, 
+          Skutnik, Roberts, Scopatz, and Borrelli, and up to 2 Illinois professors 
           who may be likely to extend this work in the future for their own 
           courses.
 
           As indicated in Table \ref{tab:kickoff}, products to be developed in the first workshop include learning 
           objectives\cite{bloom_bloom_1984}, a concept 
           map\cite{novak_concept_1990}, a list of fine-grained lesson topics, a 
-          directed acyclic graph describing dependencies among lessons. Additionally, concrete logistics 
+          directed acyclic graph describing dependencies among lessons (similar 
+          to the one in Figure \ref{fig:rosalind}. Additionally, concrete logistics 
           for completion will be established, including individual curriculum 
-          development assignments, decisions to adopt specific raw formats 
-          for lesson content (markdown vs. \LaTeX, Jupyter vs MATLAB, etc.), 
-          and a repository structure for organizing the lesson material. At 
-          this workshop, interest and compatibility with frameworks like RELATE 
+          development assignments, and a repository structure for organizing 
+          the lesson material. Additionally, practical decisions will be made 
+          such as establishing guidelines for lesson acceptability as well as 
+          agreeing on raw formats for lesson content (markdown vs. \LaTeX, 
+          Jupyter vs MATLAB, etc.),  At this workshop, interest and 
+          compatibility with frameworks like RELATE 
           \cite{kloeckner_relate_2017,kloeckner_relate_2017} and tools like 
           PrarieLearn \cite{west_prairielearn:_2015} will be considered.
+
+\begin{figure}[ht!]
+        \begin{center}
+                \includegraphics[height=0.5\textheight]{rosalind.png}
+        \end{center}
+        \caption{Rosalind.info, an educational bioinformatics resource, 
+        organizes exercises based on their dependencies.}
+        \label{fig:rosalind}
+\end{figure}
           
           \begin{table}[h!]
                   \centering
@@ -288,7 +333,8 @@ Paul Wilson\\University of Wisconsin - Madison
 
 
           \subsection{Interim Period}
-          Between Workshops, work will commence on developing 
+          Between workshops, the PI and external collaborators will commence 
+          the work of  developing 
           lessons. These lessons will be submitted by pull request to the main 
           repository and each lesson will include:
           \begin{itemize} 
@@ -308,38 +354,40 @@ Paul Wilson\\University of Wisconsin - Madison
           participants in a draft instruction manual. 
 
           \subsection{Retrospective Workshop}
-          A two-day retrospective workshop (\$15K) at UIUC will wrap up the 
+          A two-day retrospective workshop (\$15K) at Illinois will wrap up the 
           project. Discussion concerning the process will allow reflection as 
           well as a collection of lessons learned.
           Experiences live testing the developed course material (for example 
-          in NPRE412 at UIUC in Fall 2017) will be shared and suggested 
+          in NPRE412 at Illinois in Fall 2017) will be shared and suggested 
           improvements will be captured as feature requests on GitHub.  
-          The lessons learned from the year-long process will be captured:
+          The lessons learned from the year-long process will be captured in a 
+          template GitHub repository and in a collaboration instruction manual in 
+          website form. Futu
           
-          \begin{itemize}
-                  \item in a template repository 
-                  \item and in a collaboration instruction manual 
-          \end{itemize}
-
-          These products will be produced for use by other groups of faculty 
-          seeking to collaborate in a similar way.
+          With these resources, other groups of faculty seeking to collaborate 
+          in a similar way can simply fork the template repository and follow 
+          the instructions on the website to begin the process of developing 
+          their domain curriculum.
 
           Invited participants in the retrospective workshop will include:
 
           \begin{itemize}
-                  \item UIUC PI Huff and UIUC Co-PI Davis
+                  \item Illinois PI Huff and Illinois Co-PI Davis
                   \item external collaborating Professors Wilson, Roberts, 
                           Skutnik, and Scopatz
-                  \item up to 20 UIUC professors interested in extending this 
+                  \item up to 6 Illinois professors interested in extending this 
                           work in the future for their own courses.
           \end{itemize}
 
 
           \section{Potential Impact}
-          This work will have immediate student and faculty outcomes at UIUC, 
-          USC, KSU, UT Knoxville, and UW Madison. It will additionally have long term 
-          student and faculty outcomes at UIUC. Beyond this, it may have 
-          institutional outcomes at UIUC. 
+          This work will have immediate student and faculty outcomes at all of 
+          the six universities where faculty are participating
+          (Illinois, UW Madison, UT Knoxville, the University of South Carolina, 
+          Kansas State University, and the University of Idaho). 
+          It will 
+          additionally have long term student and faculty outcomes at Illinois. 
+          Beyond this, it may have institutional outcomes at Illinois. 
           
           This work will provide an important proof of concept for groups of 
           instructors willing to collaborate on open source curriculum for:
@@ -351,7 +399,7 @@ Paul Wilson\\University of Wisconsin - Madison
           \end{itemize}
 
           \paragraph{Student Outcomes}
-          Students enrolled in NPRE412 at UIUC and peer courses at partner 
+          Students enrolled in NPRE412 at Illinois and peer courses at partner 
           institutions (USC, UT-Knoxville, Kansas State University, and 
           UW-Madison) will have an improved experience. Their 
           curriculum will be bolstered by the comprehensive concept maps 
@@ -359,7 +407,7 @@ Paul Wilson\\University of Wisconsin - Madison
           and assessment tools reviewed and improved by expert professors at 
           peer institutions. 
 
-          \paragraph{UIUC Faculty Outcomes}
+          \paragraph{Illinois Faculty Outcomes}
           The effort of developing curriculum in this way may be labor 
           intensive initially. However, if the experience is similar to that of 
           open source software, the maintenance effort will reduce 
@@ -367,8 +415,8 @@ Paul Wilson\\University of Wisconsin - Madison
           contributed by colleagues will be effectively 'free' in the long 
           term. 
 
-          \paragraph{UIUC Institutional Outcomes} Openness and collaboration 
-          both increase visibility. The leadership of UIUC College of 
+          \paragraph{Illinois Institutional Outcomes} Openness and collaboration 
+          both increase visibility. The leadership of Illinois College of 
           Engineering faculty in this effort, if successful, will be exemplary 
           of the forward-thinking nature of the college and the university at 
           large. Furthermore, extensions to this work may be competitive for  
@@ -379,50 +427,29 @@ Paul Wilson\\University of Wisconsin - Madison
           \paragraph{External Outcomes}
 
           Of perhaps most relevance in the context of this work is the 
-          potential impact externally. This effort should spawn an 
+          potential impact externally. This effort will spawn an 
           instruction-centric community of 
           practice among colleagues previously primarily connected by research 
           in their specific technical subdomain. 
-
-          \section{Timeline and Deliverables}
-          \subsection{Timeline}
-          The timeline will be bookended by two workshops, a kickoff workshop 
-          and a retrospective workshop. In the intervening time, consistent 
-          communication through GitHub's collaboration framework, a Slack 
-          channel, an email listhost, a shared Google Drive folder, and monthly 
-          Google Hangouts will drive this work. 
-
-          %\input{timeline}
-          \begin{itemize}
-                  \item[Jul 2017] 1st Workshop
-                  \item[Aug 2017 - Jun 2018] Monthly Video Conferences 
-                  \item[Jul 2018] Retrospective Workshop
-          \end{itemize}
-
-          \subsection{Deliverables}
-
-          \subsubsection{Learning Objectives List}
-          \subsubsection{Concept Map}
-          \subsubsection{Learning Dependency Graph}
-\begin{figure}[ht!]
-        \begin{center}
-                \includegraphics[height=0.5\textheight]{rosalind.png}
-        \end{center}
-        \caption{Rosalind.info, an educational bioinformatics resource, 
-        organizes exercises based on their dependencies.}
-        \label{fig:rosalind}
-\end{figure}
-          \subsubsection{Lesson Materials}
-
+          The participating professors at Illinois, UW Madison, UT Knoxville, 
+          the University of South Carolina, Kansas State University, and the 
+          University of Idaho teach similar courses at their home institutions 
+          in part because their research is in similar subfields. In research, 
+          it's obvious that many of us might collaborate, and this effort will 
+          nurture the same kind of collaboration within our teaching. This is 
+          very fitting with the vision behind SIIP -- this kind of collaboration 
+          accross institutions within a scientific subfield is essential to 
+          ``teaching like we do research.'' 
 
           \section{Budget}
           The first workshop will be hosted at the Allerton Retreat Center, 
           where a small meeting room will be reserved. Visiting 
           invited workshop participants will be flown to Urbana-Champaign and 
-          lodged at the Illini Union Hotel.
+          lodged at the Illini Union Hotel. Table \ref{tab:budget} provides 
+          details related to the expenses for these workshops.
 
 \begin{table}[h!]
-        \begin{tabularx}{\textwidth}{| X |c|c|c|c|c|}
+        \begin{tabularx}{\textwidth}{|X|c|c|c|c|c|}
         \hline
         \textbf{Event} & \textbf{Item} & \textbf{Cost} & \textbf{Units} & \textbf{\$} & \textbf{Notes}\\ 
         \hline
@@ -450,6 +477,7 @@ Retrospective Workshop&Meeting Room&50&2&100&Illini Union\\
 \end{tabularx}
 \caption{All expenses will support travel for visitors and workshop 
 necessities.}
+\label{tab:budget}
 \end{table}
 
 
