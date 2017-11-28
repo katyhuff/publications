@@ -1,5 +1,6 @@
 
 \section{Methodology}
+
 To calculate the \gls{EU} nuclear material inventory,
 the \gls{EU} nations' nuclear reactor operating
 history is modeled to the furthest foreseeable future.
@@ -44,17 +45,11 @@ and \glspl{SFR}. The \texttt{Institution} agents would then deploy
 scheme. 
 
 
-\subsection{Nuclear Deployment in the \gls{EU}}
+\subsection{\gls{EU} Nuclear Deployment}
 
-
-The \gls{IAEA} \gls{PRIS} database \cite{iaea_nuclear_2017} contains reactor
-operation history.
-The database is imported as a csv file, to populate the simulation
-with deployment information, listing the country, reactor unit, type, net capacity (\gls{MWe}), status,
-operator, construction date, first criticality date, first grid date, commercial date, shutdown
-date (if applicable), and unit capacity factor for 2013. Then only the \gls{EU} countries are extracted
-from the csv file. We developed a python script to generate a \Cyclus input file from the csv file,
-which lists the individual reactor units as agents. 
+We developed a python script which fetched data from the \gls{IAEA} \gls{PRIS} 
+database \cite{iaea_nuclear_2017} to populate the \Cyclus simulation input file 
+with deployment information for each reactor in the \gls{EU}.
 
 
 \begin{figure}
