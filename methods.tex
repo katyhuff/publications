@@ -1,7 +1,46 @@
 
 \section{Methodology}
+\FloatBarrier
+
+The numerical experiments conducted in this work follow the computational 
+workflow in \cref{fig:workflow}.  For reproducibility, all scripts and data in that workflow are available in \cite{bae_arfc/transition-scenarios:_2017}.
 
 
+\begin{figure}
+        \centering
+        \scalebox{0.7}{
+\begin{tikzpicture}[node distance=1.5cm]
+\node (pris) [object] {PRIS data \cite{iaea_nuclear_2017} (\texttt{.csv})};
+\node (recipes) [object, left=of pris] {Fuel Recipes (\texttt{.csv})};
+\node (simdata) [object, right=of pris] {Simulation Data (\texttt{.py})};
+\node (script) [process, below of=pris] {Input Generation Script (\texttt{write\_deployinst\_input.py})};
+\node (input) [object, below of=script] {\Cyclus Input File (\texttt{.xml})};
+\node (cyclus) [process, below of=input]{\Cyclus};
+\node (output) [object, below of=cyclus]{\texttt{Output Database (\texttt{.sqlite})}};
+\node (script2) [process, below of=output]{Analysis Script (\texttt{analysis.py})};
+
+\draw [arrow] (recipes) -- (script); 
+\draw [arrow] (pris) -- (script); 
+\draw [arrow] (simdata) -- (script); 
+\draw [arrow] (script) -- (input); 
+\draw [arrow] (input) -- (cyclus);
+\draw [arrow] (cyclus) -- (output);
+\draw [arrow] (output) -- (script2);
+\end{tikzpicture}
+}
+\caption{Computational workflow for this simulation effort. The green circles represent files, and the blue
+         boxes represent simulation and analysis software developed by the 
+         \Cyclus team and the \gls{ARFC} group.}
+\label{fig:workflow}
+\end{figure}
+
+The following sections describe the components 
+of the process. \Cref{sec:cyclus} describes the \Cyclus simulator and agents used to simulate the fuel cycle transition. \Cref{sec:eu-deploy} 
+details the simulation input data defining historic and projected 
+nuclear reactor capacities in each \gls{EU} nation from 1970-2050.  
+\Cref{sec:reactors} and \cref{sec:materials} describe the reactor and material 
+input data, respectively. 
+\Cref{sec:scenario} describes additional scenario definition parameters. 
 
 To calculate the \gls{EU} nuclear material inventory,
 the \gls{EU} nations' nuclear reactor operating
@@ -14,11 +53,9 @@ in 2020 by recycling the stored \gls{UNF}.
 The \glspl{SFR} are modeled after the \gls{ASTRID} breeder reactor \cite{varaine_pre-conceptual_2012}.
 
 
-All scripts and data used
-in this paper are available in \cite{bae_arfc/transition-scenarios:_2017}.
 
 
-\subsection{\Cyclus}
+\subsection{\Cyclus}\label{sec:cyclus}
 
 \Cyclus is an agent-based fuel cycle simulation framework \cite{huff_fundamental_2016}, meaning that
 each reactor, reprocessing plant, and fuel fabrication plant is modeled as an agent.
@@ -140,36 +177,13 @@ minimum height=2em]
 \FloatBarrier
 
 
-\subsection{\gls{EU} Nuclear Deployment}
+\subsection{\gls{EU} Nuclear Deployment}\label{sec:eu-deploy}
 
 We developed a python script which fetched data from the \gls{IAEA} \gls{PRIS} 
 database \cite{iaea_nuclear_2017} to populate the \Cyclus simulation input file 
 with deployment information for each reactor in the \gls{EU}.
 
 
-\begin{figure}
-        \centering
-        \scalebox{0.7}{
-\begin{tikzpicture}[node distance=1.5cm]
-\node (database) [object] {Database (\texttt{.csv})};
-\node (script) [process, below of=database] {Input Generation Script (\texttt{write\_deployinst\_input.py})};
-\node (input) [object, below of=script] {\Cyclus Input File (\texttt{.xml})};
-\node (cyclus) [process, below of=input]{\Cyclus};
-\node (output) [object, below of=cyclus]{\texttt{Output File (\texttt{.Sqlite})}};
-\node (script2) [process, below of=output]{Analysis Script (\texttt{analysis.py})};
-
-\draw [arrow] (database) -- (script); 
-\draw [arrow] (script) -- (input); 
-\draw [arrow] (input) -- (cyclus);
-\draw [arrow] (cyclus) -- (output);
-\draw [arrow] (output) -- (script2);
-\end{tikzpicture}
-}
-\caption{Computational workflow for this simulation effort. The green circles represent files, and the blue
-         boxes represent simulation and analysis software developed by the 
-         \Cyclus team and the \gls{ARFC} group.}
-\label{fig:comp}
-\end{figure}
 
 
 Projections of future reactor deployment in this simulation are based on
@@ -298,7 +312,7 @@ timeseries of installed capacity in \gls{EU} nations.
 
 
 
-\subsection{French \gls{SFR} Deployment Schedule}
+\subsection{French \gls{SFR} Deployment}\label{sec:fr-deploy}
 
 From 2040,
 600-\gls{MWe} \glspl{SFR} are deployed to make up for the 
@@ -355,7 +369,7 @@ An analysis of the effect of \gls{LWR} lifetime extension is shown in a later se
 
 
 
-\section{Scenario Specification}
+\section{Scenario Specification}\label{sec:scenario}
 
 The scenario specifications  are
 listed in tables \ref{tab:gen}, \ref{tab:sim_eu}, and \ref{tab:sim_france}.
@@ -415,7 +429,7 @@ French La Hague and MELOX site \cite{schneider_spent_2008, hugelmann_melox_1999}
 
 \pagebreak
 
-\section{Reactor Specifications}
+\section{Reactor Specifications}\label{sec:reactors}
 Three major reactors are used in the simulation, \gls{PWR}, \gls{BWR}, and ASTRID-type \gls{SFR} reactors.
 
 
@@ -459,7 +473,7 @@ table \ref{tab:reactor-specs} which details the reactor specifications in this s
     \end{table}
 
 
-\subsection{Material Definitions}
+\subsection{Material Definitions}\label{sec:materials}
 Depletion calculations of the nuclear fuel are recipe-based, such that a fresh 
 and used fuel recipe is defined for each reactor type.
 For the compositions of the used fuel, a reference depletion calculation
