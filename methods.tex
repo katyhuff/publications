@@ -1,6 +1,8 @@
 
 \section{Methodology}
 
+
+
 To calculate the \gls{EU} nuclear material inventory,
 the \gls{EU} nations' nuclear reactor operating
 history is modeled to the furthest foreseeable future.
@@ -37,12 +39,105 @@ and \texttt{Region} exist, varying in complexity and functions \cite{huff_extens
  \texttt{DeployInst} is used as the institution archetype for this work, where the institution
 deploys agents in a user-defined time. 
 
-
 For example, `France' would be a \texttt{Region} agent,
 that may contain two \texttt{Institution} agents \glspl{LWR}
 and \glspl{SFR}. The \texttt{Institution} agents would then deploy
 \glspl{LWR} and \glspl{SFR} agents, respectively, according to a pre-defined deployment
 scheme. 
+
+In this simulation, a \texttt{Source} facility archetype provides natural 
+uranium, which is enriched by an \texttt{enrichment}
+facility to produce \gls{UOX}, while disposing enrichment waste (tails). A 
+\texttt{Sink} facility accepts waste. Enriched \gls{UOX} fuels
+the \glspl{LWR} and \gls{UOX} waste is sent to a pool to cool for at least 3 
+years.
+
+The cooled fuel is then reprocessed to separate plutonium and uranium,
+or sent to a repository.
+The plutonium mixed with depleted uranium (tails) makes \gls{MOX}.
+Reprocessed uranium is unused and stockpiled. Uranium is reprocessed
+in order to separate the raffinate (minor actinides and fission products)
+from `usable' material. Though neglected in this paper, reprocessed
+uranium may substitute depleted uranium for \gls{MOX} production. In the
+simulations, sufficient depleted uranium existed that using reprocessed
+uranium was overlooked. However, further in the future where the depleted
+uranium inventory drains, reprocessed uranium (or, natural uranium) will need to be utilized. 
+
+The material flow is illustrated in figure \ref{fig:fc}, along with
+the \Cyclus archetypes that were used to model each facility.
+
+
+
+% Define block styles
+\tikzstyle{decision} = [diamond, draw, fill=blue!20, 
+text width=4.5em, text badly centered, node distance=3cm, inner sep=0pt]
+\tikzstyle{block} = [rectangle, draw, fill=blue!20, 
+text width=5em, text centered, rounded corners, minimum height=4em]
+\tikzstyle{line} = [draw, -latex']
+\tikzstyle{cloud} = [draw, ellipse,fill=red!20, node distance=3cm,
+minimum height=2em]
+
+
+\begin{figure}
+        \centering
+        \scalebox{0.6}{
+                \begin{tikzpicture}[align=center, node distance = 3cm and 3cm, auto]
+                % Place nodes
+                \node [block] (sr) {Mine (\texttt{SOURCE})};
+                \node [cloud, below of=sr] (nu) {Nat U};
+                \node [block, below of=nu] (enr) {Enrichment ({\footnotesize \texttt{ENRICHMENT}})};
+                \node [cloud, below of=enr] (uox) {\gls{UOX}};
+                \node [block, below of=uox] (lwr) {\gls{LWR} (\texttt{REACTOR})};
+                \node [cloud, right of=lwr] (snf) {\gls{UNF}};
+                \node [cloud, right of=uox] (cunf) {Cooled \gls{UNF}};
+                \node [block, right of=snf] (pool) {Pool (\texttt{Storage})};
+                \node [cloud, left of=lwr] (tl2) {Dep U};
+                \node [cloud, right of=enr] (tl) {Dep U};
+                \node [block, right of=tl] (sk) {Repository (\texttt{SINK})};
+                \node [cloud, below of=pool] (cunf2) {Cooled \gls{UNF}};
+                \node [block, below of=snf] (rep) {{\small Reprocessing ({\footnotesize \texttt{SEPARATIONS}})}};
+                \node [cloud, below of=rep] (u) {Sep. U} ;
+                \node [cloud, left of=rep] (pu) {Sep. Pu};
+                \node [block, left of=pu] (mix) {Fabrication (\texttt{MIXER})};
+                \node [cloud, below of=mix] (mox) {\gls{MOX}};
+                \node [block, below of=mox] (mxr) {\gls{MOX} Reactors};
+                \node [cloud, right of= mxr] (snmox) {Spent \gls{MOX}};
+                
+                \draw[->, thick] (sr) -- (nu);
+                \draw[->, thick] (nu) -- (enr);
+                \draw[->, thick] (enr) -- (tl);
+                \draw[->, thick] (enr) -- (tl2);
+                \draw[->, thick] (tl) -- (sk);
+                \draw[->, thick] (tl2) -- (mix);
+                \draw[->, thick] (enr) -- (uox);
+                \draw[->, thick] (uox) -- (lwr);
+                \draw[->, thick] (lwr) -- (snf);
+                
+                \draw[->, thick] (lwr) -- (snf);
+                \draw[->, thick] (snf) -- (pool);
+                \draw[->, thick] (pool) -- (cunf);
+                \draw[->, thick] (pool) -- (cunf2);
+                \draw[->, thick] (cunf) -- (sk);
+                \draw[->, thick] (cunf2) -- (rep);
+                
+                \draw[->, thick] (rep) -- (u);
+                \draw[->, thick] (rep) -- (pu);
+                \draw[->, thick] (pu) -- (mix);
+                \draw[->, thick] (mix) -- (mox);
+                \draw[->, thick] (mox) -- (mxr);
+                \draw[->, thick] (mxr) -- (snmox);
+                \draw[->, thick] (snmox) -- (rep);
+                
+                \end{tikzpicture}
+        
+                }
+                \caption{The blue boxes represent fuel cycle facilities, and the red ovals
+                         represent materials. The facility names in parenthesis are archetype names
+                         used in \Cyclus. \gls{MOX} Reactors include both French \glspl{PWR} and
+                         \glspl{SFR}.}
+                \label{fig:fc}
+\end{figure}
+\FloatBarrier
 
 
 \subsection{\gls{EU} Nuclear Deployment}
@@ -72,7 +167,7 @@ with deployment information for each reactor in the \gls{EU}.
 }
 \caption{Computational Workflow for this work. The green circles represent files, and the blue
          boxes represent codes that process the files.}
-\label{diag:comp}
+\label{fig:comp}
 \end{figure}
 
 
@@ -259,101 +354,7 @@ An analysis of the effect of \gls{LWR} lifetime extension is shown in a later se
 
 
 
-\subsection{Material Flow}
-A source provides natural uranium, which is enriched by an enrichment
-facility to produce \gls{UOX}, while disposing enrichment waste (tails)
-to the sink. The enriched \gls{UOX} fuels
-the \gls{LWR}s and \gls{UOX} waste is produced. The used fuel
-is sent to a pool to cool for at least 3 years \cite{carre_overview_2009}.
-
-The cooled fuel is then reprocessed to separate plutonium and uranium,
-or sent to a repository.
-The plutonium mixed with depleted uranium (tails) makes \gls{MOX}.
-Reprocessed uranium is unused and stockpiled. Uranium is reprocessed
-in order to separate the raffinate (minor actinides and fission products)
-from `usable' material. Though neglected in this paper, reprocessed
-uranium may substitute depleted uranium for \gls{MOX} production. In the
-simulations, sufficient depleted uranium existed that using reprocessed
-uranium was overlooked. However, further in the future where the depleted
-uranium inventory drains, reprocessed uranium (or, natural uranium) will need to be utilized. 
-
-The material flow is illustrated in figure \ref{diag:fc}, along with
-the \Cyclus archetypes that were used to model each facility.
-
-
-
-% Define block styles
-\tikzstyle{decision} = [diamond, draw, fill=blue!20, 
-text width=4.5em, text badly centered, node distance=3cm, inner sep=0pt]
-\tikzstyle{block} = [rectangle, draw, fill=blue!20, 
-text width=5em, text centered, rounded corners, minimum height=4em]
-\tikzstyle{line} = [draw, -latex']
-\tikzstyle{cloud} = [draw, ellipse,fill=red!20, node distance=3cm,
-minimum height=2em]
-
-
-\begin{figure}
-        \centering
-        \scalebox{0.6}{
-                \begin{tikzpicture}[align=center, node distance = 3cm and 3cm, auto]
-                % Place nodes
-                \node [block] (sr) {Mine (\texttt{SOURCE})};
-                \node [cloud, below of=sr] (nu) {Nat U};
-                \node [block, below of=nu] (enr) {Enrichment ({\footnotesize \texttt{ENRICHMENT}})};
-                \node [cloud, below of=enr] (uox) {\gls{UOX}};
-                \node [block, below of=uox] (lwr) {\gls{LWR} (\texttt{REACTOR})};
-                \node [cloud, right of=lwr] (snf) {\gls{UNF}};
-                \node [cloud, right of=uox] (cunf) {Cooled \gls{UNF}};
-                \node [block, right of=snf] (pool) {Pool (\texttt{Storage})};
-                \node [cloud, left of=lwr] (tl2) {Dep U};
-                \node [cloud, right of=enr] (tl) {Dep U};
-                \node [block, right of=tl] (sk) {Repository (\texttt{SINK})};
-                \node [cloud, below of=pool] (cunf2) {Cooled \gls{UNF}};
-                \node [block, below of=snf] (rep) {{\small Reprocessing ({\footnotesize \texttt{SEPARATIONS}})}};
-                \node [cloud, below of=rep] (u) {Sep. U} ;
-                \node [cloud, left of=rep] (pu) {Sep. Pu};
-                \node [block, left of=pu] (mix) {Fabrication (\texttt{MIXER})};
-                \node [cloud, below of=mix] (mox) {\gls{MOX}};
-                \node [block, below of=mox] (mxr) {\gls{MOX} Reactors};
-                \node [cloud, right of= mxr] (snmox) {Spent \gls{MOX}};
-                
-                \draw[->, thick] (sr) -- (nu);
-                \draw[->, thick] (nu) -- (enr);
-                \draw[->, thick] (enr) -- (tl);
-                \draw[->, thick] (enr) -- (tl2);
-                \draw[->, thick] (tl) -- (sk);
-                \draw[->, thick] (tl2) -- (mix);
-                \draw[->, thick] (enr) -- (uox);
-                \draw[->, thick] (uox) -- (lwr);
-                \draw[->, thick] (lwr) -- (snf);
-                
-                \draw[->, thick] (lwr) -- (snf);
-                \draw[->, thick] (snf) -- (pool);
-                \draw[->, thick] (pool) -- (cunf);
-                \draw[->, thick] (pool) -- (cunf2);
-                \draw[->, thick] (cunf) -- (sk);
-                \draw[->, thick] (cunf2) -- (rep);
-                
-                \draw[->, thick] (rep) -- (u);
-                \draw[->, thick] (rep) -- (pu);
-                \draw[->, thick] (pu) -- (mix);
-                \draw[->, thick] (mix) -- (mox);
-                \draw[->, thick] (mox) -- (mxr);
-                \draw[->, thick] (mxr) -- (snmox);
-                \draw[->, thick] (snmox) -- (rep);
-                
-                \end{tikzpicture}
-        
-                }
-                \caption{The blue boxes represent fuel cycle facilities, and the red ovals
-                         represent materials. The facility names in parenthesis are archetype names
-                         used in \Cyclus. \gls{MOX} Reactors include both French \glspl{PWR} and
-                         \glspl{SFR}.}
-                \label{diag:fc}
-\end{figure}
-\FloatBarrier
-
-\section{Scenario Specifications}
+\section{Scenario Specification}
 
 The scenario specifications  are
 listed in tables \ref{tab:gen}, \ref{tab:sim_eu}, and \ref{tab:sim_france}.
