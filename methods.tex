@@ -42,17 +42,141 @@ nuclear reactor capacities in each \gls{EU} nation from 1970-2050.
 input data, respectively. 
 \Cref{sec:scenario} describes additional scenario definition parameters. 
 
+\subsection{Scenario Specification}\label{sec:scenario}
+
 To calculate the \gls{EU} nuclear material inventory,
-the \gls{EU} nations' nuclear reactor operating
-history is modeled to the furthest foreseeable future.
-The \gls{UNF} from \gls{EU} nations is stored for later usage.
-France, on top of its historical operation with \gls{MOX} production
-for its \glspl{PWR}, transitions into a 66GWe \gls{SFR} fleet
-starting from 2040. France begins production of fuel for \glspl{SFR}
-in 2020 by recycling the stored \gls{UNF}.
+we simulated nuclear reactor operating capacity in the \gls{EU}
+from 1970 to 2050.
+The \gls{EU} \gls{UNF} is stored until France reprocesses it.
+The reprocessing and \gls{MOX} fabrication capacity in France prior to 2020 is modeled after the French La Hague and MELOX sites \cite{schneider_spent_2008, hugelmann_melox_1999}.
+In 2020, France begins production of \gls{SFR} fuel by recycling the stored 
+\gls{EU} \gls{UNF}.
+In France, existing and planned \glspl{PWR} continue to be fuelled by existing 
+\gls{MOX} production until 2040. In 2040, France begins to replace decommissioned reactors 
+with \glspl{SFR}, maintaining a total capacity of 66\gls{GWe}.
 The \glspl{SFR} are modeled after the \gls{ASTRID} breeder reactor \cite{varaine_pre-conceptual_2012}.
 
+Scenario specifications are listed in tables \ref{tab:gen}, \ref{tab:sim_eu}, and \ref{tab:sim_france}.
 
+
+\begin{table}[h]
+    \centering
+    \begin{tabularx}{\textwidth}{bb}
+        \hline
+        \textbf{Specification} &\textbf{ Value} \\
+        \hline
+        Simulation Time & 1970-2160 \\ 
+        Reprocessed Uranium Usage &  None. Stockpile reprocessed U \\
+        Storage Residence Time & 36 months \\
+        \gls{SFR} available year & 2040 \\
+        Production of \gls{ASTRID} fuel begins & 2020 \\
+        \hline
+    \end{tabularx}
+    \caption {General Simulation Specifications}
+    \label{tab:gen}
+\end{table}
+
+\begin{table}[h]
+    \centering
+    \begin{tabularx}{\textwidth}{bb}
+        \hline
+        \textbf{Specification} &\textbf{ Value} \\
+        \hline
+        Reprocessing Capacity & 91.6 MTHM of \gls{UNF} per month \cite{schneider_spent_2008} \\
+        Reprocessing Efficiency & 99.8\% \\
+        Reprocessing Streams & plutonium and uranium \\
+        \gls{MOX} Fabrication Throughput & 16.25 MTHM of \gls{MOX} per month  \cite{hugelmann_melox_1999} \\
+        \gls{MOX} Fuel Reprocessing Stage &  Used \gls{MOX} is not reprocessed. \\  
+        \hline
+    \end{tabularx}
+    \caption {Specification for Historical Operation of \gls{EU}}
+    \label{tab:sim_eu}
+\end{table}
+
+\begin{table}[h]
+    \centering
+    \begin{tabularx}{\textwidth}{bb}
+        \hline
+        \textbf{Specification }& \textbf{Value} \\
+        \hline
+        Separation Efficiency & 99.8 \% \\
+        Reprocessing Streams & plutonium and uranium \\
+        \gls{ASTRID} Fuel Reprocessing Stage &  Used \gls{MOX} gets reprocessed infinitely. \\
+        \hline
+    \end{tabularx}
+    \caption {Specification for French Transition to \glspl{ASTRID} }
+    \label{tab:sim_france}
+\end{table}
+
+\pagebreak
+
+\section{Reactor Specifications}\label{sec:reactors}
+\gls{PWR}, \gls{BWR}, and ASTRID-type \gls{SFR} reactor types are simulated in 
+this scenario.
+
+For \glspl{LWR}, we used a linear core size model to capture
+varying reactor capacity. For example, a 
+1,200 \gls{MWe} PWR has $193*\frac{1,200}{1,000} = 232$ \gls{UOX} assemblies, each
+weighing 523.4 kg.
+After each 18 month cycle, one-third of the 
+core (77 assemblies) discharges. Refueling
+is assumed to take 2 months to complete, during which the reactor
+is shut down. The specifications are defined in 
+table \ref{tab:reactor-specs} which details the reactor specifications in this simulation.
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{cccc}
+        \hline
+        \textbf{Specification} & \textbf{\gls{PWR} \cite{sutharshan_ap1000tm_2011}} & \textbf{\gls{BWR} \cite{hinds_next-generation_2006}} & \textbf{\gls{SFR}} \cite{varaine_pre-conceptual_2012}\\
+        \hline
+                Lifetime [y] \tablefootnote{The simulated reactor lifetime reaches the licensed lifetime unless 
+        the reactor is shut down prematurely.} & 60 & 60 & 80 \\
+                Cycle Time [mos.]& 18 & 18 & 12\\ 
+                Refueling Outage [mos.]& 2 & 2  & 2\\
+                Rated Power [\gls{MWe}] & 1000 & 1000 & 600\\
+                Assembly mass [kg] & 523.4 & 180 & -- \\
+                Batch mass [kg] & -- & -- & 5,568\\
+                Discharge Burnup [GWd/tHM] & 51 & 51 & 105 \\
+                Assemblies per core \tablefootnote{Number of assemblies and corresponding \gls{LWR} core 
+        masses are reported for a 1000-\gls{MWe} core. Reactors with different core  
+        powers are modeled with a linear mass assumption.} & 193  & 764 & -- \\
+
+                Batches per core & 3 & 3 & 4\\
+                Initial Fissile Loading & 3.1 t  $^{235}U$ & 4.2 t  $^{235}U$ & 4.9 t  Pu \\
+                Fuel & \gls{UOX} or \gls{MOX} & \gls{UOX} & \gls{MOX} \\
+        \hline
+    \end{tabular}
+        \caption {Model \gls{LWR} and \gls{ASTRID} specifications used for the simulations are listed, and \glspl{LWR} are modified
+        linearly for varying power capacity. }
+    \label{tab:reactor-specs}
+
+    \end{table}
+
+
+\subsection{Material Definitions}\label{sec:materials}
+Spent nuclear fuel compositions are recipe-based, such that a fresh 
+and used fuel recipe is defined for each reactor type.
+For the compositions of the used fuel, a reference depletion calculation
+from ORIGEN is used (see \cref{tab:comp}). The recipe has also been used for
+\cite{wilson_adoption_2009}.
+
+\begin{table}[h]
+    \centering
+%   \scalebox{0.86}{
+        \begin{tabular}{cccc}
+            \hline
+             & \multicolumn{3}{c}{ Composition [\%]} \\
+            Recipe & U-235  & U-238  & Pu \\ 
+            \hline
+            Fresh \gls{UOX} Fuel & 3.1 & 96.9 & -   \\ 
+            Fresh \gls{MOX} Fuel & 0.2 & 90.7 & 9.1 \\ 
+            Fresh \gls{ASTRID} Fuel & 0.2 & 77.7 & 22 \\
+            \hline
+        \end{tabular}
+        \caption{Fresh fuel compositions used for the simulation \cite{wilson_adoption_2009, varaine_pre-conceptual_2012}.}
+        \label{tab:sim_result}
+\end {table}
 
 
 \subsection{\Cyclus}\label{sec:cyclus}
@@ -366,130 +490,3 @@ An analysis of the effect of \gls{LWR} lifetime extension is shown in a later se
 
 
 
-\section{Scenario Specification}\label{sec:scenario}
-
-The scenario specifications  are
-listed in tables \ref{tab:gen}, \ref{tab:sim_eu}, and \ref{tab:sim_france}.
-The reprocessing and \gls{MOX} fabrication capacity in France
-prior to 2020 is modeled after the 
-French La Hague and MELOX site \cite{schneider_spent_2008, hugelmann_melox_1999}.
-
-
-\begin{table}[h]
-    \centering
-    \begin{tabularx}{\textwidth}{bb}
-        \hline
-        \textbf{Specification} &\textbf{ Value} \\
-        \hline
-        Simulation Time & 1970-2160 \\ 
-        Reprocessed Uranium Usage &  None. Stockpile reprocessed U \\
-        Storage Residence Time & 36 months \\
-        \gls{SFR} available year & 2040 \\
-        Production of \gls{ASTRID} fuel begins & 2020 \\
-        \hline
-    \end{tabularx}
-    \caption {General Simulation Specifications}
-    \label{tab:gen}
-\end{table}
-
-\begin{table}[h]
-    \centering
-    \begin{tabularx}{\textwidth}{bb}
-        \hline
-        \textbf{Specification} &\textbf{ Value} \\
-        \hline
-        Reprocessing Capacity & 91.6 MTHM of \gls{UNF} per month \cite{schneider_spent_2008} \\
-        Reprocessing Efficiency & 99.8\% \\
-        Reprocessing Streams & plutonium and uranium \\
-        \gls{MOX} Fabrication Throughput & 16.25 MTHM of \gls{MOX} per month  \cite{hugelmann_melox_1999} \\
-        \gls{MOX} Fuel Reprocessing Stage &  Used \gls{MOX} is not reprocessed. \\  
-        \hline
-    \end{tabularx}
-    \caption {Specification for Historical Operation of \gls{EU}}
-    \label{tab:sim_eu}
-\end{table}
-
-\begin{table}[h]
-    \centering
-    \begin{tabularx}{\textwidth}{bb}
-        \hline
-        \textbf{Specification }& \textbf{Value} \\
-        \hline
-        Separation Efficiency & 99.8 \% \\
-        Reprocessing Streams & plutonium and uranium \\
-        \gls{ASTRID} Fuel Reprocessing Stage &  Used \gls{MOX} gets reprocessed infinitely. \\
-        \hline
-    \end{tabularx}
-    \caption {Specification for French Transition to \glspl{ASTRID} }
-    \label{tab:sim_france}
-\end{table}
-
-\pagebreak
-
-\section{Reactor Specifications}\label{sec:reactors}
-Three major reactors are used in the simulation, \gls{PWR}, \gls{BWR}, and ASTRID-type \gls{SFR} reactors.
-
-
-For \glspl{LWR}, we used a linear core size model to capture
-varying reactor capacity. For example, a 
-1,200 \gls{MWe} PWR has $193*\frac{1,200}{1,000} = 232$ \gls{UOX} assemblies, each
-weighing 523.4 kg.
-After each 18 month cycle, one-third of the 
-core (77 assemblies) discharges. Refueling
-is assumed to take 2 months to complete, during which the reactor
-is shut down. The specifications are defined in 
-table \ref{tab:reactor-specs} which details the reactor specifications in this simulation.
-
-\begin{table}[h]
-    \centering
-    \begin{tabular}{cccc}
-        \hline
-        \textbf{Specification} & \textbf{\gls{PWR} \cite{sutharshan_ap1000tm_2011}} & \textbf{\gls{BWR} \cite{hinds_next-generation_2006}} & \textbf{\gls{SFR}} \cite{varaine_pre-conceptual_2012}\\
-        \hline
-                Lifetime [y] \tablefootnote{The simulated reactor lifetime reaches the licensed lifetime unless 
-        the reactor is shut down prematurely.} & 60 & 60 & 80 \\
-                Cycle Time [mos.]& 18 & 18 & 12\\ 
-                Refueling Outage [mos.]& 2 & 2  & 2\\
-                Rated Power [\gls{MWe}] & 1000 & 1000 & 600\\
-                Assembly mass [kg] & 523.4 & 180 & -- \\
-                Batch mass [kg] & -- & -- & 5,568\\
-                Discharge Burnup [GWd/tHM] & 51 & 51 & 105 \\
-                Assemblies per core \tablefootnote{Number of assemblies and corresponding \gls{LWR} core 
-        masses are reported for a 1000-\gls{MWe} core. Reactors with different core  
-        powers are modeled with a linear mass assumption.} & 193  & 764 & -- \\
-
-                Batches per core & 3 & 3 & 4\\
-                Initial Fissile Loading & 3.1 t  $^{235}U$ & 4.2 t  $^{235}U$ & 4.9 t  Pu \\
-                Fuel & \gls{UOX} or \gls{MOX} & \gls{UOX} & \gls{MOX} \\
-        \hline
-    \end{tabular}
-        \caption {Model \gls{LWR} and \gls{ASTRID} specifications used for the simulations are listed, and \glspl{LWR} are modified
-        linearly for varying power capacity. }
-    \label{tab:reactor-specs}
-
-    \end{table}
-
-
-\subsection{Material Definitions}\label{sec:materials}
-Depletion calculations of the nuclear fuel are recipe-based, such that a fresh 
-and used fuel recipe is defined for each reactor type.
-For the compositions of the used fuel, a reference depletion calculation
-from ORIGEN is used (see \cref{tab:comp}). The recipe has also been used for
-\cite{wilson_adoption_2009}.
-
-\begin{table}[h]
-    \centering
-%   \scalebox{0.86}{
-        \begin{tabular}{cccc}
-            \hline
-             & \multicolumn{3}{c}{ Composition [\%]} \\
-            Recipe & U-235  & U-238  & Pu \\ 
-            \hline
-            Fresh \gls{UOX} Fuel & 3.1 & 96.9 & -   \\ 
-            Fresh \gls{MOX} Fuel & 0.2 & 90.7 & 9.1 \\ 
-            Fresh \gls{ASTRID} Fuel & 0.2 & 77.7 & 22 \\
-            \hline
-        \end{tabular}
-        \caption{Fresh fuel compositions used for the simulation \cite{wilson_adoption_2009, varaine_pre-conceptual_2012}.}
-        \label{tab:sim_result}
-\end {table}
