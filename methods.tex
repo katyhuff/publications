@@ -2,9 +2,9 @@
 \section{Methodology}
 \FloatBarrier
 
+For reproducibility, all scripts and data used to conduct these simulations are available in \cite{bae_arfc/transition-scenarios:_2017}.
 The numerical experiments conducted in this work follow the computational 
-workflow in \cref{fig:workflow}.  For reproducibility, all scripts and data in that workflow are available in \cite{bae_arfc/transition-scenarios:_2017}.
-
+workflow in \cref{fig:workflow}.  
 
 \begin{figure}
         \centering
@@ -34,13 +34,11 @@ workflow in \cref{fig:workflow}.  For reproducibility, all scripts and data in t
 \label{fig:workflow}
 \end{figure}
 
-The following sections describe the components 
-of the process. \Cref{sec:cyclus} describes the \Cyclus simulator and agents used to simulate the fuel cycle transition. \Cref{sec:eu-deploy} 
-details the simulation input data defining historic and projected 
-nuclear reactor capacities in each \gls{EU} nation from 1970-2050.  
-\Cref{sec:reactors} and \cref{sec:materials} describe the reactor and material 
-input data, respectively. 
-\Cref{sec:scenario} describes additional scenario definition parameters. 
+The following sections describe the components of the \cref{fig:workflow} process. 
+\Cref{sec:scenario} describes fundamental scenario definition parameters. 
+\Cref{sec:eu-deploy} details the simulation input data defining historic and projected nuclear reactor capacities in each \gls{EU} nation from 1970-2050.  
+\Cref{sec:reactors} and \cref{sec:materials} describe the reactor and material input data, respectively. 
+\Cref{sec:cyclus} describes the \Cyclus simulator and agents used to simulate the fuel cycle transition. 
 
 \subsection{Scenario Specification}\label{sec:scenario}
 
@@ -61,16 +59,15 @@ Scenario specifications are listed in tables \ref{tab:gen}, \ref{tab:sim_eu}, an
 
 \begin{table}[h]
     \centering
-    \begin{tabularx}{\textwidth}{bb}
+    \begin{tabularx}{\columnwidth}{bb}
         \hline
         \textbf{Specification} &\textbf{Value} \\
-                               &\textbf{[y]} \\
         \hline
         Simulation start & 1970\\ 
         Simulation end & 2160 \\ 
         \gls{ASTRID} fuel production & 2020 \\
         \gls{SFR} available year & 2040 \\
-        Storage residence time & 3 \\
+        Storage residence time & $3 [y]$ \\
         \hline
     \end{tabularx}
     \caption {General Simulation Specifications}
@@ -79,14 +76,14 @@ Scenario specifications are listed in tables \ref{tab:gen}, \ref{tab:sim_eu}, an
 
 \begin{table}[h]
     \centering
-    \begin{tabularx}{\textwidth}{bb}
+    \begin{tabularx}{\columnwidth}{bb}
         \hline
         \textbf{Specification} &\textbf{Value} \\
         \hline
-        Reprocessing Capacity & $91.6 \frac{MTHM UNF}{month}$ \cite{schneider_spent_2008} \\
+        Reprocessing Capacity \cite{schneider_spent_2008} & $91.6 \left[\frac{\mbox{MTHM UNF}}{month}\right]$\\
         Reprocessing Efficiency & 99.8\% \\
         Reprocessing Streams & Pu, U \\
-        \gls{MOX} Fabrication  & $16.25 \frac{MTHM}{month}$  \cite{hugelmann_melox_1999} \\
+        \gls{MOX} Fabrication  \cite{hugelmann_melox_1999} & $16.25 \left[\frac{\mbox{MTHM}}{month}\right]$\\
         \hline
     \end{tabularx}
     \caption {Specification for Historical Operation of \gls{EU}}
@@ -95,9 +92,9 @@ Scenario specifications are listed in tables \ref{tab:gen}, \ref{tab:sim_eu}, an
 
 \begin{table}[h]
     \centering
-    \begin{tabularx}{\textwidth}{bb}
+    \begin{tabularx}{\columnwidth}{bb}
         \hline
-        \textbf{Specification }& \textbf{Value} \\
+        \textbf{Specification}& \textbf{Value} \\
         \hline
         Separation Efficiency & 99.8 \% \\
         Reprocessing Streams & plutonium and uranium \\
