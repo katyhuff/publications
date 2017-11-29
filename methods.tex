@@ -49,11 +49,11 @@ we simulated nuclear reactor operating capacity in the \gls{EU}
 from 1970 to 2050.
 The \gls{EU} \gls{UNF} is stored until France reprocesses it.
 The reprocessing and \gls{MOX} fabrication capacity in France prior to 2020 is modeled after the French La Hague and MELOX sites \cite{schneider_spent_2008, hugelmann_melox_1999}.
-In 2020, France begins production of \gls{SFR} fuel by recycling the stored 
+In 2020, France begins \gls{SFR} fuel production by recycling the stored 
 \gls{EU} \gls{UNF}.
 In France, existing and planned \glspl{PWR} continue to be fuelled by existing 
 \gls{MOX} production until 2040. In 2040, France begins to replace decommissioned reactors 
-with \glspl{SFR}, maintaining a total capacity of 66\gls{GWe}.
+with \glspl{SFR}, maintaining a 66\gls{GWe} total capacity.
 The \glspl{SFR} are modeled after the \gls{ASTRID} breeder reactor \cite{varaine_pre-conceptual_2012}.
 
 Scenario specifications are listed in tables \ref{tab:gen}, \ref{tab:sim_eu}, and \ref{tab:sim_france}.
@@ -63,13 +63,14 @@ Scenario specifications are listed in tables \ref{tab:gen}, \ref{tab:sim_eu}, an
     \centering
     \begin{tabularx}{\textwidth}{bb}
         \hline
-        \textbf{Specification} &\textbf{ Value} \\
+        \textbf{Specification} &\textbf{Value} \\
+                               &\textbf{[y]} \\
         \hline
-        Simulation Time & 1970-2160 \\ 
-        Reprocessed Uranium Usage &  None. Stockpile reprocessed U \\
-        Storage Residence Time & 36 months \\
+        Simulation start & 1970\\ 
+        Simulation end & 2160 \\ 
+        \gls{ASTRID} fuel production & 2020 \\
         \gls{SFR} available year & 2040 \\
-        Production of \gls{ASTRID} fuel begins & 2020 \\
+        Storage residence time & 3 \\
         \hline
     \end{tabularx}
     \caption {General Simulation Specifications}
@@ -80,13 +81,12 @@ Scenario specifications are listed in tables \ref{tab:gen}, \ref{tab:sim_eu}, an
     \centering
     \begin{tabularx}{\textwidth}{bb}
         \hline
-        \textbf{Specification} &\textbf{ Value} \\
+        \textbf{Specification} &\textbf{Value} \\
         \hline
-        Reprocessing Capacity & 91.6 MTHM of \gls{UNF} per month \cite{schneider_spent_2008} \\
+        Reprocessing Capacity & $91.6 \frac{MTHM UNF}{month}$ \cite{schneider_spent_2008} \\
         Reprocessing Efficiency & 99.8\% \\
-        Reprocessing Streams & plutonium and uranium \\
-        \gls{MOX} Fabrication Throughput & 16.25 MTHM of \gls{MOX} per month  \cite{hugelmann_melox_1999} \\
-        \gls{MOX} Fuel Reprocessing Stage &  Used \gls{MOX} is not reprocessed. \\  
+        Reprocessing Streams & Pu, U \\
+        \gls{MOX} Fabrication  & $16.25 \frac{MTHM}{month}$  \cite{hugelmann_melox_1999} \\
         \hline
     \end{tabularx}
     \caption {Specification for Historical Operation of \gls{EU}}

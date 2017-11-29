@@ -1,21 +1,12 @@
-\documentclass{article}
-
-%%%% packages and definitions (optional)
-\usepackage{graphics}
-\usepackage{placeins}
-\usepackage{booktabs} % nice rules (thick lines) for tables
-\usepackage{microtype} % improves typography for PDF
-\usepackage{xspace}
-\usepackage[hidelinks]{hyperref}
-\usepackage{xspace}
-\usepackage{hhline}
+\documentclass[preprint,review]{elsarticle}
+\pdfoutput=1
 \usepackage{amsmath}
 
-\usepackage[demo]{graphicx}
-\usepackage{caption}
-\usepackage{subcaption}
+\usepackage{placeins}
+\usepackage{xspace}
+\usepackage[hidelinks]{hyperref}
+\usepackage{graphicx}
 
-\usepackage{booktabs}
 \usepackage{threeparttable, tablefootnote}
 
 \usepackage{tabularx}
@@ -23,47 +14,88 @@
 \newcolumntype{s}{>{\hsize=.5\hsize}X}
 \newcolumntype{m}{>{\hsize=.75\hsize}X}
 
-\newcommand{\SN}{S$_N$}
-\renewcommand{\vec}[1]{\bm{#1}} %vector is bold italic
-\newcommand{\vd}{\bm{\cdot}} % slightly bold vector dot
-\newcommand{\grad}{\vec{\nabla}} % gradient
-\newcommand{\ud}{\mathop{}\!\mathrm{d}} % upright derivative symbol
 \newcommand{\Cyclus}{\textsc{Cyclus}\xspace}%
 \graphicspath{ {images/} }
-\usepackage[affil-it]{authblk}
-\usepackage[numbers]{natbib}
-\usepackage{notoccite}
+
 \usepackage{tikz}
 \usetikzlibrary{positioning, arrows, decorations, shapes}
-
 \usetikzlibrary{shapes.geometric,arrows}
 \tikzstyle{process} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=black, fill=blue!30]
 \tikzstyle{object} = [ellipse, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=black, fill=green!30]
 \tikzstyle{arrow} = [thick,->,>=stealth]
 
 \usepackage{cleveref}
-
-\usepackage{datatool}
 \usepackage[acronym,toc]{glossaries}
 \include{acros}
 
 	
 \makeglossaries
 
-\title{Synergistic Spent Nuclear Fuel Dynamics Within the European Union}
-\author{Jin Whan Bae$^1$, Kathryn D. Huff$^1$, Clifford E. Singer}
-\affil{Dept. of Nuclear, Plasma, and Radiological Engineering, University of Illinois at Urbana-Champaign
-	
-		  Urbana, IL}
-\date{}                     %% if you don't need date to appear
-\setcounter{Maxaffil}{0}
-\renewcommand\Affilfont{\itshape\small}
-%%%%%%%%%%%%%%actual words%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+% hyphenated teletype
+\DeclareFontFamily{\encodingdefault}{\ttdefault}{\hyphenchar\font=`\-}
 
+% watermark
+%\usepackage[printwatermark]{xwatermark}
+%\usepackage{xcolor}
+%\usepackage{graphicx}
+%\newwatermark[allpages,color=black!5,angle=45,scale=6,xpos=-40,ypos=40]{DRAFT}
+
+\journal{Annals of Nuclear Energy}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%% Elsevier bibliography styles
+%%%%%%%%%%%%%%%%%%%%%%%
+%% To change the style, put a % in front of the second line of the current style and
+%% remove the % from the second line of the style you would like to use.
+%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Numbered
+%\bibliographystyle{model1-num-names}
+
+%% Numbered without titles
+%\bibliographystyle{model1a-num-names}
+
+%% Harvard
+%\bibliographystyle{model2-names.bst}\biboptions{authoryear}
+
+%% Vancouver numbered
+%\usepackage{numcompress}\bibliographystyle{model3-num-names}
+
+%% Vancouver name/year
+%\usepackage{numcompress}\bibliographystyle{model4-names}\biboptions{authoryear}
+
+%% APA style
+%\bibliographystyle{model5-names}\biboptions{authoryear}
+
+%% AMA style
+%\usepackage{numcompress}\bibliographystyle{model6-num-names}
+
+%% `Elsevier LaTeX' style
+\bibliographystyle{elsarticle-num}
+%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
-\maketitle
+\begin{frontmatter}
+
+\title{Synergistic Spent Nuclear Fuel Dynamics Within the European Union}
+
+%% Authors
+\input{authors}
+
+% Institutes of the authors
+\input{institutions}
+
+% Abstract
 \input{abstract}
+
+\begin{keyword}
+nuclear fuel cycle \sep simulation \sep spent fuel \sep sodium cooled fast reactor \sep Europe
+\end{keyword}
+
+\end{frontmatter}
+
+%\linenumbers
+
 \input{introduction}
 \input{methods}
 \FloatBarrier
@@ -72,12 +104,9 @@
 \FloatBarrier
 \input{conclusion}
 
-\bibliographystyle{unsrtnat}
 \bibliography{bibliography}
 \pagebreak
 \input{appendix.tex}
 
 
-
 \end{document}
-\grid
