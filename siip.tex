@@ -60,181 +60,79 @@ Paul Wilson\\University of Wisconsin - Madison
           % Leave Left and Right Header empty.
           %\lhead{}
           %\rhead{}
-          \lhead{\textcolor{gray}{SIIP Full Proposal}}
+          \lhead{\textcolor{gray}{SIIP Close-Out Report}}
           \rhead{\textcolor{gray}{Collaborative Open Source Curriculum Development}}
           %\rhead{\textcolor{gray}{\thepage/\totalpages{}}}
           \renewcommand{\headrulewidth}{0pt}
           \renewcommand{\footrulewidth}{0pt}
           %\fancyfoot[C]{\footnotesize \textcolor{gray}{\authorsite}}
 
-          \section{Problem}
-          At this very moment, hundreds of professors in the United States are 
-          simultaneously preparing lessons on transposing a matrix.
-          They are doing so largely without receiving feedback from one another 
-          or directly building on one another's experience 
-          \cite{green_building_2014}. In this way, 
-          professors spend an enormous amount of time duplicating curriculum 
-          development efforts already tackled by colleagues. What's worse is 
-          that these efforts are rarely, if ever, reviewed by, shared with, or 
-          extended upon by peers.
-          
-          Open source software development provides an excellent 
-          example of a possible solution.
-          These communities have mastered distributed expert collaboration, 
-          dynamic peer review, and de-duplication of effort. In open source 
-          software, developers share code revisions in online repositories, 
-          review one another's work in small chunks \cite{wilson_best_2014}, 
-          and contribute back their own improvements to the main project.
+A final report (goals met, outcomes
+achieved, total expenditures and
+remaining funds)
 
-          So, why aren't professors sharing their lesson materials online, 
-          collaborating on canonical lesson sets, diffing and merging similar 
-          lessons, and reviewing one another's learning materials? \textbf{Our 
-          goal is to explore the possibility that curriculum development for 
-          university courses can operate like open source software development 
-          does.}
-           
-          Previous attempts at collaborative curriculum development have met with 
-          challenges. Most notable among these is Software Carpentry (with 
-          which the PI and Co-PI are quite involved) 
-          \cite{wilson_software_2014}.  Software Carpentry teaches 
-          computational skills for scientists using a shared curriculum hosted 
-          on GitHub. Hundreds of instructors accross the planet use and remix 
-          the curriculum, but our experience showed that while these 
-          instructors used and improved on the original material, they rarely 
-          contributed their changes back to the master material. Thus, versions 
-          of the original material tend to diverge rather than converge 
-          \cite{wilson_software_2014,wilson_software_2014-1}. 
-          
-          We expect that 
-          fine-grained modularity of lesson components and a clear dependency 
-          graph of prerequisite modules for each lesson may assist in 
-          overcoming the challenges encountered by Software Carpentry and 
-          others.
+A “Best of” short paragraph, photo, or
+link that highlights a particularly
+positive outcome of your project
 
-          \section{Proposed Solution}
-          We propose a small-scale proof-of-concept for collaborative, open 
-          source, curriculum development to improve the transfer of lessons 
-          learned between instructors of the same course (either at a single 
-          university or among different campuses). This prototype collaboration 
-          will provide a template which could be adopted for collaboration 
-          among faculty teaching courses with an inherently larger scale (e.g. 
-          CS101).
+A list of any ways you have publicized
+your project (papers, faculty meetings,
+websites, etc.)
 
-          \subsection{Collaboration Roles}
-          Faculty in Nuclear Engineering from five institutions\footnote{
-          Paul Wilson at (UW Madison), 
-          Steven Skutnik (UT Knoxville), 
-          Anthony Scopatz (University of South Carolina), 
-          Jeremy Roberts (Kansas State University), 
-          and Robert Borrelli (University of Idaho)
-          } have agreed to be participants in 
-          this prototyping effort. We all currently use 
-          \href{https://github.com}{GitHub} to store, 
-          revise, and collaborate on research, especially source code. 
-          Additionally, this select group already started to host our course 
-          curricula online as well, but these are typically single author 
-          repositories (e.g. \cite{huff_npre412_2017}).
+A description of ways your department
+has supported your project
 
-          The PI and participants will collaborate on a master set of learning 
-          modules for an upper-division course in nuclear engineering : 
-          The Nuclear Fuel Cycle. In the near term, we will develop 
-          fine-grained lessons and assessments which may be mixed and matched 
-          to meet the learning objectives. The curriculum will be hosted on 
-          GitHub, tested by all of us, and improved continually.
-          
-          The PI and external collaborators will contribute and develop lesson 
-          material including lesson notes, in-class exercises, worked example 
-          problems, assessments (homework, quiz, and test questions), project 
-          assignment descriptions, media (images, movies), supporting material 
-          references, etc. These collaborators will primarily rely on the 
-          material they have developed for their own courses, but will need to 
-          convert that material into the format of the collective resource 
-          (format decided at the first workshop). Additionally, these 
-          collaborators will be core maintainers of the repository and will 
-          accordingly be responsible for conducting reviews of new material 
-          pull requests.
+          \section{Goals Met and Outcomes Acheived}
+          Our original goals and deliverables were to establish a small-scale 
+          proof-of-concept for collaborative, open source, curriculum 
+          development to improve the transfer of lessons learned between 
+          instructors of the same course (either at a single university or 
+          among different campuses). This prototype collaboration will provide 
+          a template which could be adopted for collaboration among faculty 
+          teaching courses with an inherently larger scale (e.g.  CS101).
 
-          Prof. Neal Davis, Co-PI of this proposal, has contemplated a 
-          Collaborative Computational Curriculum for some time 
-          \cite{davis_university_2016}. Since he 
-          teaches large-scale 
-          computational curriculum at Illinois 
-          he is an ideal person to potentially scale-up this work in the 
-          future. Additionally, he has the nuclear engineering background to 
-          understand the context of this prototyping effort. Prof. Davis' role 
-          in this effort will be to conduct \emph{action research}, observing 
-          our process and teasing out potential avenues for future 
-          extensions and applications of the process. 
+          This group successfully:
+          \begin{itemize}
+                  \item Held a kick-off workshop 
+                  \item Held weekly Google Hangouts
+                  \item Established communication channels through GitHub's 
+                          collaboration framework, a Slack channel, and a 
+                          shared Google Drive folder.
+                  \item Created a template 
+                          collaborative, co-owned model of shared work on 
+                          shared curriculum. We call it ``The Nuclear 
+                          Engineering Curriculum eXchange (NECX)''.
+                  \item Created a GitHub organization which can be found
+                          at https://github.com/necx-org. 
+                  \item Conceived and documented processes for the collaboration in that repository.
+                  \item Created a website where the product is being rendered https://necx-org.github.io/.
+                  \item Developed a definition of a single unit of learning, a 
+                          `node'.
+                  \item Established acceptable raw formats for node 
+                          contributions.
+                  \item Developed requirements and workflow for contributing a `node'
+                  \item Developed review criteria for reviewing node contributions.
+                  \item Began to add nodes https://github.com/necx-org/nodes 
+                          toward a master set of learning modules for an 
+                          upper-division course in nuclear engineering : The 
+                          Nuclear Fuel Cycle. These were submitted by pull 
+                          request to the main repository and each includes:
+          \begin{itemize} 
+                  \item associated learning objectives (identified previously)
+                \item content (e.g. speaking notes, presentation material, 
+                        derivations, worked examples, active learning  
+                          exercises, external readings, videos, images)
+                  \item learning assessments (e.g. project descriptions, exam questions) 
+          \end{itemize}
+          \end{itemize} 
+                  \item Shared insight with one another that couldn’t have been found at our home institutions.
+                  \item Brought these lessons into our classrooms, particularly 
+                          a modular perspective on learning outcomes and assessments.
+          \end{itemize}
 
-          \subsection{Open Source Workflow}
-          Development of this proof-of-concept curriculum will be undertaken 
-          similarly to an open source software project. 
-          In particular, this work will emulate features of open source software development 
-          that cultivate distributed collaboration. In open source, for 
-          example, new code features are described in \emph{issues} or 
-          \emph{tickets} and discussed before implementation. Small, atomic 
-          changes are reviewed before they are merged into the 
-          \emph{repository}. These discussions and incremental reviews nurture 
-          communities of practice.
-
-          In a typical open source project, a main copy of the 
-          repository (or main \emph{fork}) holds the 
-          official copy of the software package. Individual developers each have their own 
-          \emph{forks} where they can work on features and 
-          bug fixes. When the developer makes changes that are ready for prime 
-          time, they make a ``pull request'' to the main \emph{fork}. That 
-          \emph{pull request} is 
-          reviewed by their collaborators, and it is eventually merged into the 
-          main \emph{fork} where it can be used by all. Figures 
-          \ref{fig:sub1} and \ref{fig:sub2} show how this open source software 
-          development workflow
-          can be leveraged toward course development.
-
-          \begin{figure}
-                  \centering
-                  \begin{subfigure}{.4\textwidth}
-                            \centering
-                              \includegraphics[width=.8\linewidth]{git-flow}
-        \caption{This figure, from \cite{scopatz_effective_2015}, captures a 
-                          process, often called Git Flow, through which a new 
-                          feature or bug fix enters a piece of open source 
-                          software.}
-                                  \label{fig:sub1}
-                  \end{subfigure}\hfill%
-                  \begin{subfigure}{.4\textwidth}
-                            \centering
-                              \includegraphics[width=.8\linewidth]{siip-flow}
-  \caption{This adaptation imagines the process in the context of learning module development, using the same git version control system and GitHub repository hosting framework.}
-                                  \label{fig:sub2}
-                  \end{subfigure}
-                  \label{fig:test}
-          \end{figure}
-          \FloatBarrier
-
-\iffalse
-          Doing code review at the end of the work isn't useful. What works is 
-          incremental code review. This proposal suspects that the same is true 
-          for curriculum review.  \cite{wilson_software_2014}.
-
-          Education is an inherently distributed system, but this need not be a hindrance to collaboration.
-
-          Scientists are more than happy to build upon one another's work, form 
-          collaborations with others in their field. But, 
-          when it comes to educating, where is the sharing of lessons learned 
-          and collaboration? 
-\fi
-
-          \section{Timeline and Deliverables}
-          \subsection{Timeline}
-          The year will be bookended by two workshops, a kickoff workshop 
-          and a retrospective workshop. In the intervening time, consistent 
-          communication through GitHub's collaboration framework, a Slack 
-          channel, an email listhost, a shared Google Drive folder, and monthly 
-          Google Hangouts will drive this work.
-
-          If Fall 2017, any material developed through this process will be 
-          incorporated into NPRE 412, the University of Illinois nuclear fuel 
-          cycle course taught by the PI, Kathryn Huff.  
+          \textbf{Note:} The project year will be bookended by two workshops, a kickoff 
+          workshop (already occured in July 2017) and a retrospective workshop 
+          (scheduled for July 2018). 
 
           \begin{itemize}
                   \item \textbf{Jul 2017} Kick-Off Workshop
@@ -242,211 +140,38 @@ Paul Wilson\\University of Wisconsin - Madison
                   \item \textbf{Jul 2018} Retrospective Workshop
           \end{itemize}
 
-          Details of the workshops and interim efforts are given in the next 
-          subsections.
-
-          \subsection{Kick-Off Workshop}
-          A two-day kick-off workshop hosted at the University of Illinois at 
-          Urbana-Champaign will allow the 
-          participants to sketch the initial framework of 
-          the collaboration and coordinate logistics. Through brainstorming and 
-          discussion activities, the workshop will deliver a number of 
-          products. These products will be published in an online repository 
-          and associated website, both hosted by GitHub. 
-
-          Invited participants in the first workshop will include Illinois PI Huff 
-          and Illinois Co-PI Davis, excternal collaborating professors Wilson, 
-          Skutnik, Roberts, Scopatz, and Borrelli, and up to 2 Illinois professors 
-          who may be likely to extend this work in the future for their own 
-          courses.
-
-          As indicated in Table \ref{tab:kickoff}, products to be developed in the first workshop include learning 
-          objectives\cite{bloom_bloom_1984}, a concept 
-          map\cite{novak_concept_1990}, a list of fine-grained lesson topics, a 
-          directed acyclic graph describing dependencies among lessons (similar 
-          to the one in Figure \ref{fig:rosalind}. Additionally, concrete logistics 
-          for completion will be established, including individual curriculum 
-          development assignments, and a repository structure for organizing 
-          the lesson material. Additionally, practical decisions will be made 
-          such as establishing guidelines for lesson acceptability as well as 
-          agreeing on raw formats for lesson content (markdown vs. \LaTeX, 
-          Jupyter vs MATLAB, etc.),  At this workshop, interest and 
-          compatibility with frameworks like RELATE 
-          \cite{kloeckner_relate_2017,kloeckner_relate_2017} and tools like 
-          PrarieLearn \cite{west_prairielearn:_2015} will be considered.
-
-\begin{figure}[ht!]
-        \begin{center}
-                \includegraphics[height=0.5\textheight]{rosalind.png}
-        \end{center}
-        \caption{Rosalind.info, an educational bioinformatics resource, 
-        organizes exercises based on their dependencies.}
-        \label{fig:rosalind}
-\end{figure}
           
-          \begin{table}[h!]
-                  \centering
-          \begin{tabularx}{\textwidth}{r|l|l|X}
-                                  \multicolumn{4}{c}{\textbf{Day 1}}\\
-                                  \hline
-                          \textbf{Time}& \textbf{Activity}& \textbf{Lead}& \textbf{Deliverable}\\
-                                  \hline
-8:00& Welcome and Breakfast& Huff \& Davis& \\
-9:00& Vision Lightning Talk& Wilson& Idea Collection\\
-9:15& Vision Lightning Talk& Skutnik& \\
-9:30& Vision Lightning Talk& Scopatz& \\
-9:45& Vision Lightning Talk& Roberts& \\
-10:00& Vision Lightning Talk& Borrelli& \\
-10:15& Vision Lightning Talk& Huff& \\
-10:30& Break&&  \\
-10:45& Concept Mapping Exercise& All& Curriculum Concept Map\\
-12:00& Lunch& All& \\
-13:00& Brainstorm Learning Objectives& All& Learning Objectives List\\
-15:00& Break&&  \\
-15:15& Refine Lesson Topics& All& Lesson Topics List\\
-16:00& Discussion of Formats for Content& All&  \\
-17:00& Break&&  \\
-19:00& Dinner&&  \\
-\hline
-                                  \multicolumn{4}{c}{}\\
-                                  \multicolumn{4}{c}{\textbf{Day 2}}\\
-                                  \hline
-                          \textbf{Time}& \textbf{Activity}& \textbf{Lead}& \textbf{Deliverable}\\
-                                  \hline
-8:00& Review and Breakfast& Huff \& Davis& \\
-9:00& Lesson Dependency Exercise& All& Lesson Dependency Graph\\
-10:30& Break&&  \\
-10:45& Lesson Dependency Exercise& All& \\
-12:00& Lunch& All& \\
-13:00& Repository Initialization&&  Template Workspace\\
-14:00& Determination of Milestones& All& Work Plan\\
-15:00& Break&&  \\
-15:15& Assigment of Responsibilities& All&  \\
-16:00& Review and Wrap-up& All&  \\
-17:00& Break&&  \\
-19:00& Dinner&&  \\
-\hline
-                  \end{tabularx}
-                  \caption{Preliminary schedule for the Kick-off Workshop}
-                  \label{tab:kickoff}
-          \end{table}
+          \section{Best Of}
+          Much of the work focused on development of processes that could 
+          sustainably support a community of dispersed faculty collaborating on 
+          shared, modular curriculum. A key example of this is the 
+          Contributions document we collectively created which acts as a 
+          linchpin process document. This document, Making Contributions to the Nuclear 
+          Engineering Curriculum eXchange, can be found at 
+          \url{https://github.com/necx-org/nodes/blob/master/CONTRIBUTING.md} .
 
 
-          \subsection{Interim Period}
-          Between workshops, the PI and external collaborators will commence 
-          the work of  developing 
-          lessons. These lessons will be submitted by pull request to the main 
-          repository and each lesson will include:
-          \begin{itemize} 
-                  \item associated learning objectives (identified previously)
-                \item content (e.g. speaking notes, presentation material, 
-                        derivations, worked examples, active learning  
-                          exercises, external readings, videos, images)
-                  \item learning assessments (e.g. project descriptions, exam questions) 
-          \end{itemize} 
-
-          Interactions will commence primarily via issues, pull requests, and 
-          reviews on GitHub during this time. Meanwhile, monthly video 
-          conferences will help to spur high-level conversation onward.
-          Co-PI Davis will be invited to engage in these video conference as 
-          part of action research toward the final 
-          As progress is made, lessons learned will be recorded by all 
-          participants in a draft instruction manual. 
-
-          \subsection{Retrospective Workshop}
-          A two-day retrospective workshop (\$15K) at Illinois will wrap up the 
-          project. Discussion concerning the process will allow reflection as 
-          well as a collection of lessons learned.
-          Experiences live testing the developed course material (for example 
-          in NPRE412 at Illinois in Fall 2017) will be shared and suggested 
-          improvements will be captured as feature requests on GitHub.  
-          The lessons learned from the year-long process will be captured in a 
-          template GitHub repository and in a collaboration instruction manual in 
-          website form. Futu
-          
-          With these resources, other groups of faculty seeking to collaborate 
-          in a similar way can simply fork the template repository and follow 
-          the instructions on the website to begin the process of developing 
-          their domain curriculum.
-
-          Invited participants in the retrospective workshop will include:
+          \section{Publicizing}
+          We publicized this project through:
 
           \begin{itemize}
-                  \item Illinois PI Huff and Illinois Co-PI Davis
-                  \item external collaborating Professors Wilson, Roberts, 
-                          Skutnik, and Scopatz
-                  \item up to 6 Illinois professors interested in extending this 
-                          work in the future for their own courses.
+                  \item Inviting NPRE department colleagues to the kickoff 
+                          workshop dinner.
+                  \item The github organization
+                  \item The website
+                  \item Poster for the Celebration of Teaching
           \end{itemize}
-
-
-          \section{Potential Impact}
-          This work will have immediate student and faculty outcomes at all of 
-          the six universities where faculty are participating
-          (Illinois, UW Madison, UT Knoxville, the University of South Carolina, 
-          Kansas State University, and the University of Idaho). 
-          It will 
-          additionally have long term student and faculty outcomes at Illinois. 
-          Beyond this, it may have institutional outcomes at Illinois. 
+          Additionally, the retrospective workshop will present an opportunity 
+          to invite NPRE colleagues and AE3 colleagues to a lessons learned 
+          presentation.
           
-          This work will provide an important proof of concept for groups of 
-          instructors willing to collaborate on open source curriculum for:
-          \begin{itemize}
-                  \item core courses with many sections in a single university
-                  \item niche courses taught by a select group of professors across 
-          universities
-                  \item fundamental courses in small fields (e.g. nuclear engineering)
-          \end{itemize}
-
-          \paragraph{Student Outcomes}
-          Students enrolled in NPRE412 at Illinois and peer courses at partner 
-          institutions (USC, UT-Knoxville, Kansas State University, and 
-          UW-Madison) will have an improved experience. Their 
-          curriculum will be bolstered by the comprehensive concept maps 
-          underlying their coursework\cite{concept_maps}, as well as exercises 
-          and assessment tools reviewed and improved by expert professors at 
-          peer institutions. 
-
-          \paragraph{Illinois Faculty Outcomes}
-          The effort of developing curriculum in this way may be labor 
-          intensive initially. However, if the experience is similar to that of 
-          open source software, the maintenance effort will reduce 
-          substantially. Minor improvements and updates to the curriculum 
-          contributed by colleagues will be effectively 'free' in the long 
-          term. 
-
-          \paragraph{Illinois Institutional Outcomes} Openness and collaboration 
-          both increase visibility. The leadership of Illinois College of 
-          Engineering faculty in this effort, if successful, will be exemplary 
-          of the forward-thinking nature of the college and the university at 
-          large. Furthermore, extensions to this work may be competitive for  
-          support from educational grant-making agencies such as the National 
-          Science Foundation and even private foundations such as Moore and 
-          Sloan. 
-
-          \paragraph{External Outcomes}
-
-          Of perhaps most relevance in the context of this work is the 
-          potential impact externally. This effort will spawn an 
-          instruction-centric community of 
-          practice among colleagues previously primarily connected by research 
-          in their specific technical subdomain. 
-          The participating professors at Illinois, UW Madison, UT Knoxville, 
-          the University of South Carolina, Kansas State University, and the 
-          University of Idaho teach similar courses at their home institutions 
-          in part because their research is in similar subfields. In research, 
-          it's obvious that many of us might collaborate, and this effort will 
-          nurture the same kind of collaboration within our teaching. This is 
-          very fitting with the vision behind SIIP -- this kind of collaboration 
-          accross institutions within a scientific subfield is essential to 
-          ``teaching like we do research.'' 
-
           \section{Budget}
-          The first workshop will be hosted at the Allerton Retreat Center, 
-          where a small meeting room will be reserved. Visiting 
-          invited workshop participants will be flown to Urbana-Champaign and 
-          lodged at the Illini Union Hotel. Table \ref{tab:budget} provides 
-          details related to the expenses for these workshops.
+          The expenses for the Kickoff Workshop and the Summer Salary for Co-PI 
+          Davis have already been spent. The expenses for the Retrospective 
+          workshop will be spent in July 2018.
+
+          Table \ref{tab:budget} provides details related to the expenses for 
+          this effort.
 
 \begin{table}[h!]
         \begin{tabularx}{\textwidth}{|X|c|c|c|c|c|}
@@ -455,8 +180,6 @@ Paul Wilson\\University of Wisconsin - Madison
         \hline
 Kick-off Workshop&Meeting Room&744&2&1488&Allerton, all day package\\
 &Lodging&150&24&3600&Allerton guest rooms\\
-&Flights&800&6&4800&Estimated\\
-&Taxi&20&12&240&\\
 &Incidentals&100&6&600&\\
 &Continental breakfast&8.5&24&204&Working breakfasts, Allerton\\
 &Dinner&30&24&720&In Champaign-Urbana\\
@@ -464,7 +187,6 @@ Kick-off Workshop&Meeting Room&744&2&1488&Allerton, all day package\\
 Retrospective Workshop&Meeting Room&50&2&100&Illini Union\\
 &Projector&300&4&1200&Illini Union\\
 &Lodging&150&24&3600&Illini Union Hotel\\
-&Flights&800&6&4800&Estimated\\
 &Taxi&20&12&240&\\
 &Incidentals&100&6&600&\\
 &Continental breakfast&8.5&24&204&University Catering\\
@@ -475,20 +197,17 @@ Retrospective Workshop&Meeting Room&50&2&100&Illini Union\\
         &\textbf{Total}&&&\textbf{23606}&\\
         \hline
 \end{tabularx}
-\caption{All expenses will support travel for visitors and workshop 
+\caption{All expenses supported workshop 
 necessities.}
 \label{tab:budget}
 \end{table}
 
 
-
           \section{Departmental Support}
-          The Department of Nuclear, Plasma, and Radiological Engineering will 
+          The Department of Nuclear, Plasma, and Radiological Engineering
           support this work in kind with release time for Kathryn Huff through 
-          her Start-Up funds.  Additionally, NPRE will support workshop activities 
-          with administrative effort and by providing space. Finally, 
-          collaborating external participants will contribute in kind with 
-          summer time hours.
+          her Start-Up funds.  Additionally, NPRE supported workshop activities 
+          with administrative effort and by providing space. 
 
 
           \bibliographystyle{katyunsrt}
